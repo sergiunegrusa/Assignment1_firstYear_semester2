@@ -104,7 +104,7 @@ public class BouncingShapesWindow {
             if(s.isPulsing()){
                 if(s.getShape().equals("circle")){
                     Circle circle=(Circle)s;
-                    if(circle.getDiameter() < 2.2*circle.getInitDiameter() && circle.isMoving()) {
+                    if(circle.getDiameter() < 2.2 * circle.getInitDiameter() && circle.isMoving()) {
                         circle.setDiameter(circle.getDiameter() + 1);
                     }
                     else if(circle.getDiameter() > circle.getInitDiameter()) {
@@ -116,14 +116,14 @@ public class BouncingShapesWindow {
                     }
                 }
                 else if(s.getShape().equals("rect")){
-                    Rect rect = (Rect)s;
-                    if(rect.getHeight()*rect.getWidth() < 2.4*rect.getInitHeight()*rect.getWidth() && rect.isMoving()){
+                    Rect rect = (Rect) s;
+                    if(rect.getHeight() * rect.getWidth() < 2.4 * rect.getInitHeight() * rect.getWidth() && rect.isMoving()){
                         rect.setHeight(rect.getHeight() + 1);
-                        rect.setWidth(rect.getWidth()+1);
+                        rect.setWidth(rect.getWidth() + 1);
                     }
-                    else if(rect.getHeight()*rect.getWidth()>rect.getInitHeight()*rect.getWidth()) {
+                    else if(rect.getHeight() * rect.getWidth() > rect.getInitHeight() * rect.getWidth()) {
                         rect.setHeight(rect.getHeight() - 1);
-                        rect.setWidth(rect.getWidth()-1);
+                        rect.setWidth(rect.getWidth() - 1);
                         rect.setMoving(false);
                     }
                     else{
@@ -132,13 +132,13 @@ public class BouncingShapesWindow {
                 }
                 else if(s.getShape().equals("oval")){
                     Oval oval=(Oval) s;
-                    if(oval.getHeight()*oval.getWidth()<2.3*oval.getInitHeight()*oval.getInitWidth() && oval.isMoving()){
-                        oval.setHeight(oval.getHeight()+1);
-                        oval.setWidth(oval.getWidth()+1);
+                    if(oval.getHeight()*oval.getWidth() < 2.3 * oval.getInitHeight() * oval.getInitWidth() && oval.isMoving()){
+                        oval.setHeight(oval.getHeight() + 1);
+                        oval.setWidth(oval.getWidth() + 1);
                     }
-                    else if(oval.getHeight()*oval.getWidth()>oval.getInitHeight()*oval.getInitWidth()){
-                        oval.setHeight(oval.getHeight()-1);
-                        oval.setWidth(oval.getWidth()-1);
+                    else if(oval.getHeight() * oval.getWidth() > oval.getInitHeight() * oval.getInitWidth()){
+                        oval.setHeight(oval.getHeight() - 1);
+                        oval.setWidth(oval.getWidth() - 1);
                         oval.setMoving(false);
                     }
                     else{
