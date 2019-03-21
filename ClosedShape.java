@@ -21,6 +21,10 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class ClosedShape {
 
+    protected String shape;
+
+    protected boolean isMoving = true;
+    protected boolean pulsing;
     /**
      *  The x position of the Shape.
      */
@@ -63,7 +67,8 @@ public class ClosedShape {
      * @param colour The line or fill colour.
      * @param isFilled True if the shape is filled, false if not.
      */
-    protected ClosedShape (int insertionTime, int x, int y, int vx, int vy, Color colour, boolean isFilled) {
+    protected ClosedShape (String shape,int insertionTime, int x, int y, int vx, int vy, Color colour, boolean isFilled, boolean pulsing) {
+        this.shape = shape;
         this.x = x;
         this.y = y;
         this.xVec = vx;
@@ -71,6 +76,7 @@ public class ClosedShape {
         this.colour = colour;
         this.isFilled = isFilled;
         this.insertionTime = insertionTime;
+        this.pulsing = pulsing;
     }
 
     /**
@@ -181,6 +187,8 @@ public class ClosedShape {
         return insertionTime;
     }
 
+
+
     /**
      * Puts the shape back in bounds in X
      */
@@ -263,5 +271,25 @@ public class ClosedShape {
         System.out.println ("You forgot to override a method! (getHeight)");
         System.out.println ("Don't modify this method.");
         return 1;
+    }
+
+    public void setPulsing(boolean pulsing) {
+        this.pulsing = pulsing;
+    }
+
+    public boolean isPulsing() {
+        return pulsing;
+    }
+
+    public String getShape() {
+        return shape;
+    }
+
+    public void setMoving(boolean state) {
+        this.isMoving = state;
+    }
+
+    public boolean isMoving() {
+        return this.isMoving;
     }
 }

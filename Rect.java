@@ -20,6 +20,8 @@ import javafx.scene.canvas.GraphicsContext;
 public class Rect extends ClosedShape {
     //The width and height of the oval (major and minor axis)
     private int width, height;
+    private int initWidth;
+    private int initHeight;
 
     /**
      * Creates a rect.
@@ -32,10 +34,12 @@ public class Rect extends ClosedShape {
      * @param colour The line colour or fill colour.
      * @param isFilled True if the rect is filled with colour, false if opaque.
      */
-    public Rect (int insertionTime, int x, int y, int vx, int vy, int width, int height, Color colour, boolean isFilled) {
-        super (insertionTime, x, y, vx, vy, colour, isFilled);
+    public Rect (String shape, int insertionTime, int x, int y, int vx, int vy, int width, int height, Color colour, boolean isFilled, boolean pulsing) {
+        super (shape, insertionTime, x, y, vx, vy, colour, isFilled, pulsing);
         this.width = width;
         this.height = height;
+        setInitHeight(height);
+        setInitWidth(width);
     }
 
     /**
@@ -46,6 +50,26 @@ public class Rect extends ClosedShape {
         result += super.toString ();
         result += "Its width is " + this.width + " and its height is " + this.height + "\n";
         return result;
+    }
+
+    public void setInitWidth(int initWidth) {
+        this.initWidth = initWidth;
+    }
+
+    public void setInitHeight(int initHeight) {
+        this.initHeight = initHeight;
+    }
+
+    public int getInitWidth() {
+        return initWidth;
+    }
+
+    public int getInitHeight() {
+        return initHeight;
+    }
+
+    public String getShape() {
+        return this.shape;
     }
 
     /**

@@ -21,6 +21,7 @@ import javafx.scene.canvas.GraphicsContext;
 public class Square extends ClosedShape {
     //The side of the square
     private int side;
+    private int initSide;
 
 
     /**
@@ -33,9 +34,10 @@ public class Square extends ClosedShape {
      * @param colour The line colour or fill colour.
      * @param isFilled True if the square is filled with colour, false if opaque.
      */
-    public Square (int insertionTime, int x, int y, int vx, int vy, int side, Color colour, boolean isFilled) {
-        super (insertionTime, x, y, vx, vy, colour, isFilled);
+    public Square (String shape, int insertionTime, int x, int y, int vx, int vy, int side, Color colour, boolean isFilled, boolean pulsing) {
+        super (shape, insertionTime, x, y, vx, vy, colour, isFilled, pulsing);
         this.side = side;
+        setInitSide(side);
 
     }
 
@@ -47,6 +49,18 @@ public class Square extends ClosedShape {
         result += super.toString ();
         result += "Its side is " + this.side + "\n";
         return result;
+    }
+
+    public void setInitSide(int initSide) {
+        this.initSide = initSide;
+    }
+
+    public int getInitSide() {
+        return initSide;
+    }
+
+    public String getShape() {
+        return this.shape;
     }
 
     /**

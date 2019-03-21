@@ -101,6 +101,77 @@ public class BouncingShapesWindow {
         for (ClosedShape s : activeShapes)
         {
             s.move();
+            if(s.isPulsing()){
+                if(s.getShape().equals("circle")){
+                    Circle circle=(Circle)s;
+                    if(circle.getDiameter() < 2.2*circle.getInitDiameter() && circle.isMoving()) {
+                        circle.setDiameter(circle.getDiameter() + 1);
+                    }
+                    else if(circle.getDiameter() > circle.getInitDiameter()) {
+                        circle.setDiameter(circle.getDiameter() - 1);
+                        circle.setMoving(false);
+                    }
+                    else{
+                        circle.setMoving(true);
+                    }
+                }
+                else if(s.getShape().equals("rect")){
+                    Rect rect = (Rect)s;
+                    if(rect.getHeight()*rect.getWidth() < 2.4*rect.getInitHeight()*rect.getWidth() && rect.isMoving()){
+                        rect.setHeight(rect.getHeight() + 1);
+                        rect.setWidth(rect.getWidth()+1);
+                    }
+                    else if(rect.getHeight()*rect.getWidth()>rect.getInitHeight()*rect.getWidth()) {
+                        rect.setHeight(rect.getHeight() - 1);
+                        rect.setWidth(rect.getWidth()-1);
+                        rect.setMoving(false);
+                    }
+                    else{
+                        rect.setMoving(true);
+                    }
+                }
+                else if(s.getShape().equals("oval")){
+                    Oval oval=(Oval) s;
+                    if(oval.getHeight()*oval.getWidth()<2.3*oval.getInitHeight()*oval.getInitWidth() && oval.isMoving()){
+                        oval.setHeight(oval.getHeight()+1);
+                        oval.setWidth(oval.getWidth()+1);
+                    }
+                    else if(oval.getHeight()*oval.getWidth()>oval.getInitHeight()*oval.getInitWidth()){
+                        oval.setHeight(oval.getHeight()-1);
+                        oval.setWidth(oval.getWidth()-1);
+                        oval.setMoving(false);
+                    }
+                    else{
+                        oval.setMoving(true);
+                    }
+                }
+                else if(s.getShape().equals("triangle")){
+                    Triangle triangle=(Triangle) s;
+                    if(triangle.getSide()<2.2*triangle.getAux() && triangle.isMoving()) {
+                        triangle.setSide(triangle.getSide() + 1);
+                    }
+                    else if(triangle.getSide()>triangle.getAux()){
+                        triangle.setSide(triangle.getSide()-1);
+                        triangle.setMoving(false);
+                    }
+                    else{
+                        triangle.setMoving(true);
+                    }
+                }
+                else if(s.getShape().equals("square")){
+                    Square square=(Square) s;
+                    if(square.getSide()<2.1*square.getInitSide() && square.isMoving()) {
+                        square.setSide(square.getSide() + 1);
+                    }
+                    else if(square.getSide()>square.getInitSide()){
+                        square.setSide(square.getSide()-1);
+                        square.setMoving(false);
+                    }
+                    else{
+                        square.setMoving(true);
+                    }
+                }
+            }
 
             // Move us back in and bounce if we went outside the drawing area.
             if (s.outOfBoundsX(dimsX))

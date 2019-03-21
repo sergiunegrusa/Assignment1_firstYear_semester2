@@ -11,6 +11,8 @@
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
 
+import java.awt.*;
+
 /**
  * Circle is a shape that can be drawn to the screen, either
  * filled with colour or opaque.
@@ -21,6 +23,7 @@ import javafx.scene.canvas.GraphicsContext;
 public class Circle extends ClosedShape {
     //The diameter of the circle
     private int diameter;
+    private int initDiameter;
 
 
     /**
@@ -33,9 +36,10 @@ public class Circle extends ClosedShape {
      * @param colour The line colour or fill colour.
      * @param isFilled True if the circle is filled with colour, false if opaque.
      */
-    public Circle (int insertionTime, int x, int y, int vx, int vy, int diameter, Color colour, boolean isFilled) {
-        super (insertionTime, x, y, vx, vy, colour, isFilled);
+    public Circle (String shape, int insertionTime, int x, int y, int vx, int vy, int diameter, Color colour, boolean isFilled, boolean pulsing) {
+        super (shape, insertionTime, x, y, vx, vy, colour, isFilled, pulsing);
         this.diameter = diameter;
+        initDiameter = getDiameter();
 
     }
 
@@ -47,6 +51,14 @@ public class Circle extends ClosedShape {
         result += super.toString ();
         result += "Its diameter is " + this.diameter + "\n";
         return result;
+    }
+
+    public void setInitDiameter(int initDiameter) {
+        this.initDiameter = initDiameter;
+    }
+
+    public int getInitDiameter() {
+        return initDiameter;
     }
 
     /**
@@ -75,6 +87,10 @@ public class Circle extends ClosedShape {
      */
     public int getHeight() {
         return diameter;
+    }
+
+    public String getShape() {
+        return this.shape;
     }
 
     /**

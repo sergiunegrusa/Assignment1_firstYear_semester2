@@ -40,12 +40,18 @@ public class ReadShapeFile {
         int B = in.nextInt();
         int insertionTime = in.nextInt();
         Color color = Color.rgb(R,G,B);
+        boolean pulsing = in.nextBoolean();
 
-        Triangle triangle = new Triangle(insertionTime, x, y, vx, vy, side, color, isFilled);
+        Triangle triangle = new Triangle("triangle", insertionTime, x, y, vx, vy, side, color, isFilled, pulsing);
 
         return triangle;
     }
 
+    /**
+     *
+     * @param in
+     * @return
+     */
     private static Rect readRect(Scanner in){
         int x=in.nextInt();
         int y=in.nextInt();
@@ -59,8 +65,9 @@ public class ReadShapeFile {
         int B=in.nextInt();
         int insertionTime=in.nextInt();
         Color colour=Color.rgb(R,G,B);
+        boolean pulsing = in.nextBoolean();
 
-        Rect rect=new Rect(insertionTime, x,y,vx, vy, width, height,colour,isFilled);
+        Rect rect=new Rect("rect", insertionTime, x,y,vx, vy, width, height,colour,isFilled, pulsing);
 
         return rect;
     }
@@ -77,8 +84,9 @@ public class ReadShapeFile {
         int B=in.nextInt();
         int insertionTime=in.nextInt();
         Color colour= Color.rgb(R,G,B);
+        boolean pulsing = in.nextBoolean();
 
-        Square square=new Square(insertionTime, x, y, vx, vy, side, colour, isFilled);
+        Square square=new Square("square", insertionTime, x, y, vx, vy, side, colour, isFilled, pulsing);
 
         return square;
     }
@@ -95,8 +103,9 @@ public class ReadShapeFile {
         int B=in.nextInt();
         int insertionTime=in.nextInt();
         Color colour= Color.rgb(R,G,B);
+        boolean pulsing = in.nextBoolean();
 
-        Circle circle=new Circle(insertionTime, x, y, vx, vy, diameter, colour, isFilled);
+        Circle circle=new Circle("circle",insertionTime, x, y, vx, vy, diameter, colour, isFilled, pulsing);
 
         return circle;
     }
@@ -114,8 +123,9 @@ public class ReadShapeFile {
         int B=in.nextInt();
         int insertionTime=in.nextInt();
         Color colour=Color.rgb(R,G,B);
+        boolean pulsing = in.nextBoolean();
 
-        Oval oval=new Oval(insertionTime, x,y,vx, vy, width, height,colour,isFilled);
+        Oval oval=new Oval("oval", insertionTime, x,y,vx, vy, width, height,colour,isFilled, pulsing);
 
         return oval;
     }
